@@ -1,0 +1,48 @@
+---
+
+const {id, title, descr} = Astro.props;
+
+---
+
+<div class="verification_card">
+  <span class="verification_card-step">{id} step</span>
+  <h2 class="verification_card-title">{title}</h2>
+  <p class="verification_card-text">{descr}</p>
+</div>
+
+<style lang="scss">
+  .verification_card {
+    padding: 24px;
+    border: 2px solid #E5E6E6;
+    border-radius: 24px;
+    margin-bottom: 24px;
+  }
+  .verification_card-step {
+    padding: 0 8px;
+    border: 1px solid #0066FF;
+    border-radius: 8px;
+    color: #0066FF;
+
+    font-weight: 600;
+    font-family: "Anek Bangla", sans-serif;
+    font-size: 16px;
+  }
+  .verification_card-title {
+    margin: 16px 0;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .verification_card-text {
+    font-weight: 400;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    color: #595D62;
+  }
+
+  @media screen and (max-width: 768px) {
+    .verification_card {
+      max-width: 328px;
+    }
+  }
+</style>
+

@@ -1,0 +1,46 @@
+---
+
+const { isGreen } = Astro.props;
+
+---
+
+<a href="#" class:list={['main_button', { green: isGreen }]}>
+  <slot />
+</a>
+
+<style lang="scss">
+.main_button {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  padding: 12px 32px;
+  background: #0066FF;
+  color: #fff;
+  border-radius: 16px;
+  white-space: nowrap;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 16px;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    background: #5096FF;
+  }
+}
+
+.green {
+background: #D2FA57;
+color: #111111;
+
+  &:hover {
+    background: #eaffab;
+  }
+}
+</style>

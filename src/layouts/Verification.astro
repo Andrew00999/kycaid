@@ -1,0 +1,126 @@
+---
+
+// Data
+import { identityVerificationList } from "@data/identityVerificationList";
+
+// Components
+import VerificationCard from "@components/Verification-card.astro";
+
+// Packages
+import '@splidejs/splide/dist/css/splide.min.css';
+import SliderArrow from "@components/Slider-arrow.astro";
+
+---
+
+<section id="verification">
+  <div class="container">
+    <main class="verification__inner">
+
+      <div id="verificationSlider" class="splide">
+        <div class="verification__inner-head">
+          <h1>Instant Non-doc Identity Verification</h1>
+
+          <p class="verification_mobile_text">
+            A smooth and intuitive identity verification journey designed for users - all verified with official government databases.
+          </p>
+          
+          <div class="splide__arrows verification__splide__arrows splide__arrows--ltr">
+            <button
+              class="splide__arrow splide__arrow--prev"
+              type="button"
+              aria-label="Previous slide"
+              aria-controls="splide01-track"
+            >
+              <SliderArrow />
+            </button>
+            <button
+              class="splide__arrow splide__arrow--next"
+              type="button"
+              aria-label="Next slide"
+              aria-controls="splide01-track"
+            >
+              <SliderArrow />
+            </button>
+          </div>
+          
+        </div>
+        <div class="splide__track">
+          <ul class="splide__list">
+            {identityVerificationList.map(({id, title, descr}) => (
+                <li class="splide__slide">
+                  <VerificationCard id={id} title={title} descr={descr} />
+                </li>
+              ))}
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</section>
+
+<style lang="scss">
+    #verification {
+      background-color: #F6F6F8;
+      padding: 72px 0;
+    }
+    .verification__inner-head {
+      margin-bottom: 32px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+
+      h1 {
+        font-weight: 700;
+        font-family: "Anek Bangla", sans-serif;
+        font-size: clamp(24px, 2.5vw, 44px);
+        max-width: 750px;
+      }
+    }
+    .verification_mobile_text {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .verification_mobile_text {
+        display: block;
+        margin-top: 24px;
+        font-weight: 400;
+        color: #595D62;
+        font-size: 16px;
+      }
+      .verification__inner-head {
+        flex-direction: column;
+      }
+      #verification {
+        background-color: #F6F6F8;
+        padding: 32px 0;
+      }
+    }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    import('@splidejs/splide').then(({ default: Splide }) => {
+      new Splide('#verificationSlider', {
+        perPage: 2,
+        perMove: 1,
+        autoplay: false,
+        pagination: false,
+        arrows: true,
+        gap: 24,
+        autoWidth: false,
+        breakpoints: {
+          768: {
+            perPage: 1,
+            pagination: true,
+            arrows: false,
+            autoWidth: true,
+          }
+        }
+      }).mount();
+    });
+  });
+</script>

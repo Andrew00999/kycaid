@@ -1,0 +1,105 @@
+---
+import ButtonArrow from "@components/Button-arrow.astro";
+import MainButton from "@components/Main-button.astro";
+
+---
+
+<section id="non_doc">
+  <div class="container">
+    <main class="non_doc__inner">
+      <div class="non_doc__inner-text">
+        <p>Non-doc verification</p>
+        <h2>Experience hassle-free user verification with our Non-doc simplified process.</h2>
+      </div>
+      <MainButton isGreen>
+        Try now
+        <ButtonArrow isDark />
+      </MainButton>
+    </main>
+  </div>
+</section>
+
+<style lang="scss">
+  #non_doc {
+    background-color: #F6F6F8;
+    padding: 72px 0;
+  }
+  .non_doc__inner {
+    position: relative;
+    background: url("../../src/images/non-doc-section/bg-gradient.webp") no-repeat;
+    background-size: cover;
+    border-radius: 24px;
+    padding: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 42px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background: url("../../src/images/non-doc-section/decoration.webp") no-repeat;
+      background-size: 100% 100%;
+      bottom: 0;
+      right: 5%;
+      width: 600px;
+      height: 100%;
+      max-height: 300px;
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+  .non_doc__inner-text {
+    max-width: 600px;
+    color: #fff;
+
+    p {
+      font-family: "Anek Bangla", sans-serif;
+      font-weight: 600;
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid #D2FA57;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: clamp(24px, 2.56vw, 32px);
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    #non_doc {
+      padding: 22px 0;
+    }
+    .non_doc__inner::after {
+      background: url("../../src/images/non-doc-section/mobile-decoration.webp") no-repeat;
+      background-size: 100% 100%;
+      width: 250px;
+      height: 250px;
+      max-width: 100%;
+      max-height: 100%;
+      right: 0;
+      bottom: -50%;
+      transform: translateY(-50%);
+    }
+    .non_doc__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+      padding: 32px;
+    }
+    .non_doc__inner-text {
+      p {
+        font-weight: 500;
+      }
+
+      h2 {
+        font-weight: 400;
+        font-family: "DM Sans", sans-serif;
+      }
+    }
+  }
+</style>

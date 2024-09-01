@@ -1,0 +1,123 @@
+---
+
+// Images/Icons
+import StarIcon from "@components/Star-icon.astro";
+
+// Components
+import ButtonArrow from "@components/Button-arrow.astro";
+import MainButton from "@components/Main-button.astro";
+
+// Data
+import { innovationsList } from "@data/innovationsList";
+
+---
+
+<section id="innovations">
+  <div class="container">
+    <main class="innovations__inner">
+      <div class="innovations__inner-head">
+        <h1>Innovative AML&KYC Compliance</h1>
+        <span class="innovations_desktop_button">
+          <MainButton>
+            Book a demo
+            <ButtonArrow />
+          </MainButton>
+        </span>
+      </div>
+      <ul class="innovations__inner-descr">
+        {innovationsList.map(({title, descr}) => (
+          <li>
+            <StarIcon />
+            <p>
+              <b>{title}</b> 
+              {descr}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <span class="innovations_mobile_button">
+        <MainButton>
+          Book a demo
+          <ButtonArrow />
+        </MainButton>
+      </span>
+    </main>
+  </div>
+</section>
+
+<style lang="scss">
+  #innovations {
+    background-color: #F6F6F8;
+    padding: 72px 0;
+  }
+
+  .innovations__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .innovations__inner-head {
+    max-width: 405px;
+
+    h1 {
+      margin-bottom: 32px;
+      font-size: clamp(24px, 2.5vw, 44px);
+      font-weight: 700;
+    }
+  }
+  .innovations__inner-descr {
+
+    max-width: 60%;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 24px;
+
+      p {
+        margin-left: 24px;
+        color: #595D62;
+        font-size: clamp(16px, 1.7vw, 22px);
+        font-weight: 400;
+        font-family: "DM Sans", sans-serif;
+
+        b {
+          font-family: "Anek Bangla", sans-serif;
+          font-weight: 700;
+          color: #595D62;
+          font-size: clamp(18px, 2vw, 24px);
+        }
+      }
+    }
+  }
+
+  .innovations_desktop_button {
+    display: block;
+  }
+
+  .innovations_mobile_button {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    #innovations {
+      padding: 32px 0;
+    }
+
+    .innovations_desktop_button {
+      display: none;
+    }
+    .innovations_mobile_button {
+      display: block;
+    }
+    .innovations__inner {
+      flex-direction: column;
+    }
+    .innovations__inner-descr {
+      max-width: 100%;
+    }
+  }
+</style>

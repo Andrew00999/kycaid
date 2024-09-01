@@ -1,0 +1,70 @@
+---
+
+const {title, descr, image} = Astro.props;
+
+---
+
+<div class="services_card">
+  <div class="services_card-text">
+    <h2>{title}</h2>
+    <p>{descr}</p>
+  </div>
+  <div class="services_card-image">
+    <img src={`../../src/images/services-section/${image}`} alt="Services ard" />
+  </div>
+</div>
+
+<style lang="scss">
+.services_card {
+  padding: 32px 48px;
+  border: 2px solid #E5E6E6;
+  border-radius: 32px;
+  margin-bottom: 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 42px;
+}
+
+.services_card-text {
+  max-width: 675px;
+
+  h2 {
+    font-size: clamp(18px, 2.56vw, 32px);
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #595D62;
+  }
+}
+
+.services_card-image {
+  min-width: 265px;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    border-radius: 14px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .services_card-text,
+  .services_card-text {
+    max-width: 280px;
+  }
+  
+  .services_card {
+    padding: 24px;
+    width: 100%;
+
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+
+}
+
+</style>
