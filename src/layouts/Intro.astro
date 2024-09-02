@@ -3,7 +3,8 @@
 import { Image } from "astro:assets";
 
 // Images/Icons
-import mainImage from "@images/intro-section/main.webp";
+import introVideoMP4 from "@images/intro-section/intro-video.mp4";
+import introVideoWEBM from "@images/intro-section/intro-video.webm";
 
 // Components
 import MainButton from "@components/Main-button.astro";
@@ -29,7 +30,11 @@ import ButtonArrow from "@components/Button-arrow.astro";
             <ButtonArrow />
           </MainButton>
         </div>
-        <Image class="intro__inner-image" src={mainImage} alt="main image" />
+        <video class="intro__inner-image" autoplay loop muted>
+          <source src={introVideoWEBM} type="video/webm" />
+          <source src={introVideoMP4} type="video/mp4" />
+          <p>Your browser doesn't support HTML video.</p>
+        </video>
       </main>
     </div>
   </div>
